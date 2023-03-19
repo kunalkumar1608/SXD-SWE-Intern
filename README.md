@@ -60,11 +60,11 @@ _3.1 What type of database would you choose? Why?_
 
 _3.2 Assume your target user audience are all math students in the US. How would you size your database accordingly? What strategies would you consider to prevent overloading a single database instance with requests?_
 
-**Answer** : Now, we are given that the target audience are maths student in the US.
+**Answer** : Now, we are given that the target audience are maths student in the US. I would size our database with respect to number of the users and number of problems each users creates. Therefore, our database should be able to handle `Number of User * Number of Problems per User` queries. This value could be signifanctly large ranging from few thousands to millions. Therefore, we might overloading on single database instances. To prevent this issues, I would consider using `Sharding` and `Replication`. Distributing the data across multiple servers (Sharding) and making a copy of the data across multiple servers to ensure high durability and availability (Replication) can really boost the performance and check the overheading issue. As mentioned in 3.1, we could use `Amazon DynamoDB` NoSQL database for this purpose. 
 
 _3.3 Did you set up your database locally or on cloud infrastructure?_
 
-**Answer** : 
+**Answer** : I would prefer to setup our database on `Cloud Infrastructure`, like Microsoft Azure or Amazon Web Service (AWS). The main reasons to choose cloud services over local database is that it is more scalable, highly available, more secure, easy managable, flexible database options, simple deployment etc. 
 
 As an example, for Part 2 above you would check to see if the same coefficients and max / min exist in the database for $Max Z = 3X_1 + 4X_2$ (need to store Max, 3, 4). Then you would need to do something similar for each of the constraints. To keep this problem simple, assume the following for all possible problems the user can input:
 
