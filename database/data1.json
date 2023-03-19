@@ -1,0 +1,43 @@
+{
+  "_id": {
+    "$oid": "64178a394b19d4eb12196c8a"
+  },
+  "key": {
+    "max_min": "maximize",
+    "obj_coeffs": [
+      3,
+      4
+    ],
+    "constraint_coeffs": [
+      [
+        15,
+        10,
+        300
+      ],
+      [
+        2.5,
+        5,
+        110
+      ]
+    ],
+    "bound": [
+      [
+        0,
+        {
+          "$numberDouble": "Infinity"
+        }
+      ],
+      [
+        0,
+        {
+          "$numberDouble": "Infinity"
+        }
+      ]
+    ]
+  },
+  "optimal_params": [
+    8,
+    18,
+    96
+  ]
+}
