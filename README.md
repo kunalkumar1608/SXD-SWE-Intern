@@ -6,7 +6,7 @@ Assume your team is building an application that attempts to find the optimal so
 
 Consider the following problem:
 
-$Min Z = –3X1 + X2$
+$Min Z = –3X_1 + X_2$
 
 Subject to the following:
 
@@ -30,11 +30,11 @@ We used `linprog` library from `Scipy` to solve the equations. Additionaly, the 
 
 Write a program that can iteratively (or recursively) solve for $X_{1}$ and $X_{2}$ for similar equations to the above. As a benchmark, when facing the following (similar) problem.
 
-$Max Z = 3X1 + 4X2$
+$Max Z = 3X_1 + 4X_2$
 
 Subject to the following:
 
-$15X1 + 10X2 ≤ 300$
+$15X_1 + 10X_2 ≤ 300$
 
 $2.5X_{1} + 5X_{2} ≤ 110$
 
@@ -43,7 +43,7 @@ $X_{1} ≥ 0, X_{2} ≥ 0$
 your program should output $X_{1} = 8, X_{2} = 18$, and $Z = 96$ as the optimal solution. Please focus on writing your program with best OOP practices in mind (class design, DRY, handling static variables, etc.).
 
 #### Answer : 
-As explained in `Question 1`, that we used `linprog` library from `Scipy` to solve the problem. Additionaly, the algorithm is designed with OOPs concept. Moreover, we used Python rich visualisation tools to visualise the overall solution. I have added `question2.py` file as a solution for second problem. As expected, the final outputs are - for given objective function, the optimal value of `X1 = 8.0` and `X2 = 18.0`, which resulted in maximum value of `Z = 96.0`. The overall graphical solution can be seen as follows : 
+As explained in `Question 1`, that we used `linprog` library from `Scipy` to solve the problem. Additionaly, the algorithm is designed with OOPs concept. Moreover, we used Python rich visualisation tools to visualise the overall solution. I have added `question2.py` file as a solution for second problem. As we are using Scipy's linprog library which works for minimization problem, hence, we mulitplied the objective function with -1 in both side. Therefore, our new objective function becomes $Min -Z = -3X_1 - 4X_2$. Therefore, with given constriants our algorithm returns optipal value of `Z` in inverse sign. Thus, we multiply with `-1` on final optimal value which will result in maximum optimal value of objective function. As expected, the final outputs are - for given objective function, the optimal value of `X1 = 8.0` and `X2 = 18.0`, which resulted in maximum value of `Z = 96.0`. The overall graphical solution can be seen as follows : 
 
 <img src="https://github.com/kunalkumar1608/SXD-SWE-Intern/blob/main/sxd_question2.png" width="800" height="600">
 
