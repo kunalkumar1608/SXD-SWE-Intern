@@ -16,7 +16,7 @@ $2X_{1} + X_{2} ≤ 8$
 
 $X_{1} ≥ 0, X_{2} ≥ 0$
 
-What is the optimal solution?
+_What is the optimal solution?_
 
 #### Answer : 
 This question is linear optimization problem where based on given conditions, we need to find maximum or minimum value of the objective function. As we could see that all the variables have power of 1, therefore, the common area shared between two set of equations (also called as feasible region) will provide the optimal solutions. We will use `Simplex Method` to solve the problem, which is widely used method for solving linear problems. Also, we know that if a linear problem as bounded solution then one of the corner points (which is part of shared/feasible region) provide the optimal solution. 
@@ -47,3 +47,31 @@ As explained in `Question 1`, that we used `linprog` library from `Scipy` to sol
 
 <img src="https://github.com/kunalkumar1608/SXD-SWE-Intern/blob/main/sxd_question2.png" width="800" height="600">
 
+
+### Part 3: Systems
+
+Let’s assume that we are trying to roll out the program you wrote above to a production system and web UI with a set of end users. Instead of recalculating the optimal set of values for `x1` and `x2` every time a user changes the min/max function and associated constraints, let’s first implement a check against a backend database to see if a previous problem “already exists”. To check this, you would need to run a comparison between the coefficients that the user inputs into the web UI and whether they match any set of coefficients in the backend. The core ask here is to set up a dedicated backend database of your choice to store these inputs and retrieve them as quickly and efficiently as possible (sub-millisecond latency) to then render the “already computed solution” in the frontend.
+
+Some questions to consider:
+
+_3.1 What type of database would you choose? Why?_
+
+**Answer** : 
+
+_3.2 Assume your target user audience are all math students in the US. How would you size your database accordingly? What strategies would you consider to prevent overloading a single database instance with requests?_
+
+**Answer** : 
+
+_3.3 Did you set up your database locally or on cloud infrastructure?_
+
+**Answer** : 
+
+As an example, for Part 2 above you would check to see if the same coefficients and max / min exist in the database for $Max Z = 3X_1 + 4X_2$ (need to store Max, 3, 4). Then you would need to do something similar for each of the constraints. To keep this problem simple, assume the following for all possible problems the user can input:
+
+* Only constrained to either a Max or Min cost function for Z
+* Only involve the two variables x1 and x2
+* The last constraint X1 ≥ 0, X2 ≥ 0 will never change
+
+You do not need to program a dedicated web UI for this exercise. Please only focus on basic functionalities. However, it is recommended to write at least one integration test that checks for whether a given “problem pattern” exists in the backend.
+
+**Answer** : 
