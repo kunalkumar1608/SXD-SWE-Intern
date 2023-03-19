@@ -22,7 +22,7 @@ What is the optimal solution?
 
 We used `linprog` library from `Scipy` to solve the equations. Additionaly, the algorithm is designed with OOPs concept. Moreover, we used Python rich visualisation tools to visualise the overall solution. I have added `question1.py` file as a solution for first problem. The final outputs are : for given objective function, the optimal value of `X1 = 4.0` and `X2 = 0.0`, which resulted in minimum value of `Z = -12.0`. The overall graphical solution can be seen as follows : 
 
-<img src="https://github.com/kunalkumar1608/SXD-SWE-Intern/blob/main/sxd_question1.png" width="1000" height="1000">
+<img src="https://github.com/kunalkumar1608/SXD-SWE-Intern/blob/main/sxd_question1.png" width="700" height="700">
 
 
 ### Part 2: Programming
@@ -43,5 +43,5 @@ your program should output $X_{1} = 8, X_{2} = 18$, and $Z = 96$ as the optimal 
 
 **Answer** : 
 As explained in `Question 1`, that we used `linprog` library from `Scipy` to solve the problem. Additionaly, the algorithm is designed with OOPs concept. Moreover, we used Python rich visualisation tools to visualise the overall solution. I have added `question2.py` file as a solution for second problem. As expected, the final outputs are - for given objective function, the optimal value of `X1 = 8.0` and `X2 = 18.0`, which resulted in maximum value of `Z = 96.0`. The overall graphical solution can be seen as follows : 
-<img src="https://github.com/kunalkumar1608/SXD-SWE-Intern/blob/main/sxd_question2.png" width="1000" height="1000">
+<img src="https://github.com/kunalkumar1608/SXD-SWE-Intern/blob/main/sxd_question2.png" width="700" height="700">
 
