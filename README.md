@@ -50,17 +50,17 @@ As explained in `Question 1`, that we used `linprog` library from `Scipy` to sol
 
 ### Part 3: Systems
 
-Let’s assume that we are trying to roll out the program you wrote above to a production system and web UI with a set of end users. Instead of recalculating the optimal set of values for `x1` and `x2` every time a user changes the min/max function and associated constraints, let’s first implement a check against a backend database to see if a previous problem “already exists”. To check this, you would need to run a comparison between the coefficients that the user inputs into the web UI and whether they match any set of coefficients in the backend. The core ask here is to set up a dedicated backend database of your choice to store these inputs and retrieve them as quickly and efficiently as possible (sub-millisecond latency) to then render the “already computed solution” in the frontend.
+Let’s assume that we are trying to roll out the program you wrote above to a production system and web UI with a set of end users. Instead of recalculating the optimal set of values for `X1` and `X2` every time a user changes the min/max function and associated constraints, let’s first implement a check against a backend database to see if a previous problem “already exists”. To check this, you would need to run a comparison between the coefficients that the user inputs into the web UI and whether they match any set of coefficients in the backend. The core ask here is to set up a dedicated backend database of your choice to store these inputs and retrieve them as quickly and efficiently as possible (sub-millisecond latency) to then render the “already computed solution” in the frontend.
 
 Some questions to consider:
 
 _3.1 What type of database would you choose? Why?_
 
-**Answer** : 
+**Answer** : As mentioned that, we need to store and retrieve the data with minimal possible latency, I would prefer NoSQL databases like `mongoDB` or `Cassandra`. The reason to choose such database is that they are highly scalable (which can efficiently handle large volume of data) and distributed (making it fast processing). Moreover, NoSQL databases are schema-less, thus making them superior in handling unstructured data which could be a case while storing the coefficients. We could use `Amazon DynamoDB`, which is also a NoSQL database providing previous benefits. Also, DynamoDB uses synchronous replication across multiple data center for high durability and availibility. Thus, if one replica has overloaded with request, the same request can be routed to another replica of share.
 
 _3.2 Assume your target user audience are all math students in the US. How would you size your database accordingly? What strategies would you consider to prevent overloading a single database instance with requests?_
 
-**Answer** : 
+**Answer** : Now, we are given that the target audience are maths student in the US.
 
 _3.3 Did you set up your database locally or on cloud infrastructure?_
 
@@ -68,9 +68,9 @@ _3.3 Did you set up your database locally or on cloud infrastructure?_
 
 As an example, for Part 2 above you would check to see if the same coefficients and max / min exist in the database for $Max Z = 3X_1 + 4X_2$ (need to store Max, 3, 4). Then you would need to do something similar for each of the constraints. To keep this problem simple, assume the following for all possible problems the user can input:
 
-* Only constrained to either a Max or Min cost function for Z
-* Only involve the two variables x1 and x2
-* The last constraint X1 ≥ 0, X2 ≥ 0 will never change
+* Only constrained to either a Max or Min cost function for `Z`
+* Only involve the two variables `X1` and `X2`
+* The last constraint `X1` ≥ 0, `X2` ≥ 0 will never change
 
 You do not need to program a dedicated web UI for this exercise. Please only focus on basic functionalities. However, it is recommended to write at least one integration test that checks for whether a given “problem pattern” exists in the backend.
 
